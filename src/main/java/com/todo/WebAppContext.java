@@ -1,12 +1,9 @@
 package com.todo;
 
-import com.todo.repositories.InMemoryItemRepositoryImpl;
-import com.todo.repositories.ItemRepository;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
@@ -14,11 +11,6 @@ import org.springframework.context.annotation.Configuration;
 @SpringBootApplication
 @ComponentScan("com.todo")
 public class WebAppContext extends SpringBootServletInitializer {
-
-    @Bean
-    public ItemRepository itemRepository() {
-        return new InMemoryItemRepositoryImpl();
-    }
 
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {

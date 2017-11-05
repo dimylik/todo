@@ -1,5 +1,6 @@
 package com.todo.loaders;
 
+import com.todo.domain.Item;
 import com.todo.repositories.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
@@ -27,7 +28,7 @@ public class MockLoader implements ApplicationListener<ContextRefreshedEvent> {
             );
 
             for (String item : mockItems) {
-                itemRepository.create(item);
+                itemRepository.save(new Item(item));
             }
         }
 

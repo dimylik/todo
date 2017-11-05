@@ -1,12 +1,11 @@
 package com.todo.repositories;
 
 import com.todo.domain.Item;
+import org.springframework.data.repository.CrudRepository;
 
 import java.util.Collection;
 
-public interface ItemRepository {
-
-    Item create(String value);
+public interface ItemRepository extends CrudRepository<Item, String> {
 
     Item save(Item item);
 

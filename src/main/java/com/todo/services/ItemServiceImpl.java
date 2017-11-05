@@ -15,7 +15,7 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     public Item createItem(String value) {
-        return itemRepository.create(value);
+        return itemRepository.save(new Item(value));
     }
 
     @Override

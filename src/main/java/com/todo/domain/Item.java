@@ -1,7 +1,15 @@
 package com.todo.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Item {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private String id;
     private String value;
     private boolean status;
@@ -9,8 +17,7 @@ public class Item {
     public Item() {
     }
 
-    public Item(String id, String value) {
-        this.id = id;
+    public Item(String value) {
         this.value = value;
     }
 
