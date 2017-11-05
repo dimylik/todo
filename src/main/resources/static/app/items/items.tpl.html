@@ -1,0 +1,29 @@
+
+<div class="section">
+    <h2>
+        Total: [{{model.items.length}}] /
+        Done: [{{(model.items | filter:{ status: true }).length}}] /
+        Active: [{{(model.items | filter:{ status: false }).length}}]
+    </h2>
+    <div ng-if="model.items && model.items.length > 0">
+        <ul type="square">
+            <li class="todo-item"
+                ng-class="{'item-done' : item.status}"
+                ng-repeat="item in model.items | activeItemsFirst">
+
+                <button type="button"
+                        class="btn btn-xs btn-danger"
+                        ng-click="itemsCtrl.deleteItem(item)">
+                    <span class="glyphicon glyphicon-remove"></span>
+                </button>
+                <span class="item-text" ng-click="itemsCtrl.itemDone(item)">{{item.value}}</span>
+            </li>
+        </ul>
+    </div>
+
+    <div ng-if="model.items.length == 0">No items found</div>
+
+    <input-editor title="Add new item" on-save="itemsCtrl.addItem(value)"></input-editor>
+
+</div>
+
