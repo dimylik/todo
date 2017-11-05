@@ -19,7 +19,7 @@ public class MockLoader implements ApplicationListener<ContextRefreshedEvent> {
     @Override
     public void onApplicationEvent(ContextRefreshedEvent event) {
 
-        if (itemRepository.findAll().isEmpty()) {
+        if (!itemRepository.findAll().iterator().hasNext()) {
             List<String> mockItems = Arrays.asList(
                     "Christmas shopping",
                     "BBQ Saturday",
